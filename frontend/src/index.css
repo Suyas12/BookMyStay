@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+
+
+
+#root {
+  @apply w-full h-full;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* .fade-in-up {
+  animation: fadeInUp 1s ease-out;
+} */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+@layer utilities {
+  .min-h-screen {
+    min-height: 100vh;
+  }
+
+  .pb-16 {
+    padding-bottom: 4rem;
+  }
+
+  .fixed {
+    position: fixed;
+  }
+
+  .bottom-0 {
+    bottom: 0;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    @apply px-2;
+  }
+}
+

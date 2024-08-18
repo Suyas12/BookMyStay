@@ -1,0 +1,17 @@
+/* Custom styles for NavBar if needed */
+.navbar {
+  transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: rgba(31, 41, 55, 0.8); /* Slightly transparent dark background on hover */
+}
+
+.navbar-logo a {
+  transition: color 0.3s ease;
+}
+
+.navbar-links a {
+  transition: color 0.3s ease;
+}
+
