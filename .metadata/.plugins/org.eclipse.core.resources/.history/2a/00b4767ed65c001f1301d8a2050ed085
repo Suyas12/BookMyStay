@@ -1,0 +1,52 @@
+#Tomcat server port number 8080
+#server.port=7070
+#context path default value : empty
+#server.servlet.context-path=/ems
+server.servlet.session.persistent=false
+#DB properties
+spring.datasource.url=jdbc:mysql://localhost:3306/bookmystay3?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=root
+spring.datasource.password=password
+# JPA properties
+spring.jpa.show-sql = true
+spring.jpa.hibernate.ddl-auto = update
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+#logging.level.org.springframework.orm.hibernate5=DEBUG
+
+# Spring MVC ViewResolver related
+#spring.mvc.view.prefix=/WEB-INF/views
+#spring.mvc.view.suffix=.jsp
+#Disable open session in view 
+spring.jpa.open-in-view=false
+#property to disable hibernateLazyInitializer during initialized proxies
+#spring.jackson.serialization.FAIL_ON_EMPTY_BEANS=false
+SECRET_KEY=mySecretKey1234
+EXP_TIMEOUT=86400000
+#spring.mail.host=smtp.gmail.com
+#spring.mail.port=587
+#spring.mail.username=almusiqiiynnick@gmail.com
+#spring.mail.password=hejr yypx wute gtbs
+
+# SMTP server host
+spring.mail.host=smtp.gmail.com
+
+# SMTP server port
+spring.mail.port=587
+
+# Username for the email account
+spring.mail.username=almusiqiiynnick@gmail.com
+
+# Password for the email account
+spring.mail.password=hejr yypx wute gtbs
+
+# Use TLS (STARTTLS) for the connection
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+# Use authentication
+spring.mail.properties.mail.smtp.auth=true
+
+# Optional: Specify the TLS protocol (recommended)
+spring.mail.properties.mail.smtp.starttls.required=true
+
+# Optional: Specify that the connection should be secure (recommended)
+spring.mail.properties.mail.smtp.ssl.trust=smtp.gmail.com

@@ -1,0 +1,60 @@
+package com.book.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.book.entities.User;
+import com.book.exception.ResourceNotFoundException;
+import com.book.repository.UserRepository;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
+	private PasswordEncoder enc;
+
+	@Override
+	public User findByEmail(String email) {
+		return userRepository.findByEmail(email).orElse(null);
+	}
+
+	@Override
+	public User save(User user) {
+		System.out.println(user);
+		user.setPassword(enc.encode(user.getPassword()));
+		return userRepository.save(user);
+	}
+
+	@Override
+	public Optional<User> findUserById(Long Id) {
+
+		return userRepository.findById(Id);
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return userRepository.findAll();
+	}
+
+	@Override
+	public void enableUser(Long userId) {
+		User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+		user.setEnabled(true);
+		userRepository.save(user);
+	}
+	
+	@Override
+	public void updatePassword(User user, String newPassword) {
+        user.setPassword(passwordEncoder.encode(newPassword));
+        save(user);
+    }
+
+}
